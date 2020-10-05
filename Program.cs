@@ -9,14 +9,16 @@ namespace Employee_Wage_Calculation_Code
         public const int IS_PART_TIME = 1;
         public const int EMP_RATE_PER_HR = 20;
         public const int NUM_WRKNG_DAYS = 2;
+        public const int MAX_HRS = 10;
         static void Main(string[] args)
         {
-            // variables
+            //variables
             int empHr = 0;
-            int empWage = 0;
-            int totalEmpWage = 0;
-            for (int day = 0; day < NUM_WRKNG_DAYS; day++)
+            int totalEmpHr = 0;
+            int totalWrkDay = 0;
+            while (totalEmpHr <= MAX_HRS && totalWrkDay < NUM_WRKNG_DAYS)
             {
+                totalWrkDay++;
                 Random random = new Random();
                 int empChk = random.Next(0, 3);
                 switch (empChk)
@@ -31,11 +33,11 @@ namespace Employee_Wage_Calculation_Code
                         empHr = 0;
                         break;
                 }
-                empWage = empHr * EMP_RATE_PER_HR;
-                totalEmpWage += empWage;
-                Console.WriteLine(" Employee Wage is: " + empWage);
+                totalEmpHr += empHr;
+                Console.WriteLine(" Days: " + totalWrkDay + " Employee Hours: " + empHr);
             }
-            Console.WriteLine(" Total Employee Wage: " + totalEmpWage);
+            int totEmpWage = totalEmpHr * EMP_RATE_PER_HR;
+            Console.WriteLine(" Total Employee Wage: " + totEmpWage);
         }
     }
 }
