@@ -14,17 +14,17 @@ namespace Employee_Wage_Calculation_Code
             int EmpWage = 0;
             Random random = new Random();
             int empChk = random.Next(0, 3);
-            if (empChk == IS_PART_TIME)
+            switch (empChk)
             {
-                empHr = 4;
-            }
-            else if (empChk == IS_FULL_TIME)
-            {
-                empHr = 8;
-            }
-            else
-            {
-                empHr = 0;
+                case IS_PART_TIME:
+                    empHr = 4;
+                    break;
+                case IS_FULL_TIME:
+                    empHr = 8;
+                    break;
+                default:
+                    empHr = 0;
+                    break;
             }
             EmpWage = empHr * EMP_RATE_PER_HR;
             Console.WriteLine(" Employee Wage is: " + EmpWage);
