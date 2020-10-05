@@ -4,20 +4,25 @@ namespace Employee_Wage_Calculation_Code
 {
     class Program
     {
+        public const int IS_FULL_TIME = 1;
+        public const int EMP_RATE_PER_HR = 20;
         static void Main(string[] args)
         {
-            Console.WriteLine(" Welcome to Employee Wage Calculation Program ");
-            int IS_FULL_TIME = 1;
+            // variables
+            int empHr;
+            int empWage;
             Random random = new Random();
             int empChk = random.Next(0, 2);
             if (empChk == IS_FULL_TIME)
             {
-                Console.WriteLine(" Employee is Present ");
+                empHr = 8;
             }
             else
             {
-                Console.WriteLine(" Employee is Absent ");
+                empHr = 0;
             }
+            empWage = empHr * EMP_RATE_PER_HR;
+            Console.WriteLine(" Employee Wage is: " + empWage);
         }
     }
 }
